@@ -4,25 +4,15 @@ import java.util.*;
 public class Sort01 {
 
   public static void sort01(int[] arr) {
-    int unexploredFirst = 0, greaterFirst = 0;
-    while (unexploredFirst < arr.length)
-    {
-      // unexplored region : i to n-1
-      // 0s region : 0 to j - 1
-      // 1s region : j to i - 1
-
-      if (arr[unexploredFirst] == 0)
-      {
-        // add unexplored element in smaller or equal region
-        swap(arr, unexploredFirst, greaterFirst);
-        greaterFirst++;
-        unexploredFirst++;
-      }
-      else
-      {
-        // add unexplored element in greater region
-        unexploredFirst++;
-      }
+    int right = 0, left = 0;
+    while(right < arr.length){
+        if(arr[right] == 1){
+            right++;
+        }else{
+            swap(arr, right, left);
+            right++;
+            left++;
+        }
     }
   }
 

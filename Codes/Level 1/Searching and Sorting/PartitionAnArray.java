@@ -24,6 +24,17 @@ public class PartitionAnArray {
             i++;
         }
     }
+
+
+    // compact code, use instead of the above one
+    // int left = 0, right = 0;
+    // while(right < arr.length){
+    //     if(arr[right] <= pivot){
+    //         swap(arr, right, left);
+    //         left++;
+    //     }
+    //     right++;
+    // }
   }
 
   // used for swapping ith and jth elements of array
