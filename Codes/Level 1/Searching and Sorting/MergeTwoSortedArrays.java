@@ -5,35 +5,21 @@ public class MergeTwoSortedArrays {
 
   public static int[] mergeTwoSortedArrays(int[] a, int[] b){
     //write your code here
-    int[] res = new int[a.length + b.length];
-    
+    int n = a.length, m = b.length;
+    int[] ans = new int[n + m];
     int i = 0, j = 0, k = 0;
+    while(i<n && j<m){
+        if(a[i] < b[j]){
+            ans[k++] = a[i++];
+        }else{
+            ans[k++] = b[j++];
+        }
+    }
     
-    while(i < a.length && j < b.length)
-    {
-        if(a[i] < b[j])
-        {
-            res[k] = a[i];
-            i++; k++;
-        }
-        else
-        {
-            res[k] = b[j];
-            j++; k++;
-        }
-    }
-    while(j < b.length)
-    {
-        res[k] = b[j];
-        j++; k++;
-    }
-    while(i < a.length)
-    {
-        res[k] = a[i];
-        i++; k++;
-    }
-
-    return res;
+    while(i<n)  ans[k++] = a[i++];
+    while(j<m)  ans[k++] = b[j++];
+    
+    return ans; 
   }
 
   public static void print(int[] arr){
