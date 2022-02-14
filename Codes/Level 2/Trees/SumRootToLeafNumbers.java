@@ -15,20 +15,21 @@
  */
 class Solution {
     
-    public void findTreePaths(TreeNode root, String curr, List<String> ans){
+    int ans;
+    
+    public void findSum(TreeNode root, int currAns){
         if(root == null)    return;
         if(root.left == null && root.right == null){
-            ans.add(curr + root.val);
+            ans += currAns*10 + root.val;
             return;
         }
-        curr += root.val + "->";
-        if(root.left != null)  findTreePaths(root.left, curr, ans);
-        if(root.right != null)  findTreePaths(root.right, curr, ans);
+        findSum(root.left, currAns*10 + root.val);
+        findSum(root.right, currAns*10 + root.val);
     }
     
-    public List<String> binaryTreePaths(TreeNode root) {
-        List<String> ans = new ArrayList<>();
-        findTreePaths(root, "", ans);
+    public int sumNumbers(TreeNode root) {
+        ans = 0;
+        findSum(root, 0);
         return ans;
     }
 }

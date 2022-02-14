@@ -118,7 +118,6 @@ class Node
 }*/
 class Solution
 {
-    
     public static void findPath(List<Integer> ans, List<Integer> curr, Node root, int target){
         if(root == null)    return;
         if(root.data == target){
