@@ -48,7 +48,6 @@ class Solution {
         if(head == null) return true;
         if(root == null) return false; 
         
-        return isSubPathHelper(head, root) || isSubPath(head, root.left) 
-                                          || isSubPath(head, root.right);
+        return isSubPathHelper(head, root) || isSubPath(head, root.left) || isSubPath(head, root.right);
     }
 }
